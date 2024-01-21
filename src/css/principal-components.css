@@ -16,3 +16,10 @@
     }
 }
 
+.principal-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 20%;
+}

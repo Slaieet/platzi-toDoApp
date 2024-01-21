@@ -1,4 +1,5 @@
 import { Task } from "../components/Task"
+import { useState } from "react"
 
 const ToDos = () => {
 
@@ -7,7 +8,7 @@ const ToDos = () => {
             id: 1,
             text: "Wake up",
             completed: false
-        }, 
+        },
         {
             id: 2,
             text: "sleep",
@@ -21,8 +22,13 @@ const ToDos = () => {
     ]
 
     return(
-        <section>
-            
+        <section className="principal-container">
+            {tareas.map(tarea => {
+                const [complet, setComplet] = useState(tarea.completed);
+                return (
+                    <Task text={tarea.text} complet={complet} setComplet={setComplet} key={tarea.id} />
+                )
+            })}
         </section>
     )
 }
