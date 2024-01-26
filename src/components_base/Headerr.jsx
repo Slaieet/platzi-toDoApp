@@ -1,9 +1,10 @@
 import { ProfilePicture } from "../components/ProfilePicture"
 import { Search } from "../components/Search"
 
-const Headerr = ({name}) => {
+const Headerr = ({ busqueda, setBusqueda, tareas }) => {
 
-    const url = "https://avatars.githubusercontent.com/u/1561955?v=4";
+  const url = "https://avatars.githubusercontent.com/u/1561955?v=4";
+
 
   return (
     <header className="principal-header">
@@ -11,7 +12,7 @@ const Headerr = ({name}) => {
             <h1>To Do</h1>
         </header>
       
-        <Search type="text"/>
+        <Search type="text" busqueda={busqueda} setBusqueda={setBusqueda} tareas={tareas}/>
       
         <footer>
             <ProfilePicture url={url} />

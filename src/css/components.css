@@ -37,6 +37,12 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+
+    h3 {
+        color: #fff;
+        margin: 10px 0;
+        text-align: center;
+    }
 }
 
 .container-task_label {

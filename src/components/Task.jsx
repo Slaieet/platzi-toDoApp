@@ -1,15 +1,11 @@
-const Task = ({ text, complet, setComplet }) => {
-
-    const changeCheck = () => {
-        setComplet(!complet)
-    }
+const Task = ({ text }) => {
 
     return (
         <div className="container-tasks">
             <label className="container-task_label">
-                <input type="checkbox"  checked={complet} onChange={changeCheck}/>
+                <input type="checkbox" />
                 <p
-                className={complet ? "task-completed_p" : ""}
+                // className={complet ? "task-completed_p" : ""}
                 >
                     { text }
                 </p>
