@@ -35,7 +35,7 @@ const App = () => {
   return (
     <>
       <Headerr tareas={tareasFinal} busqueda={busqueda} setBusqueda={setBusqueda}/>
-      <ToDos tareas={tareasFinal}/>
+      <ToDos tareasFinal={tareasFinal} tareas={tareas} setTareas={setTareas}/>
     </>
   )
 }

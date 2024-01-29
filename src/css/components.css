@@ -33,11 +33,6 @@
 
 
 .principal-container {
-    margin: 15px 0;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-
     h3 {
         color: #fff;
         margin: 10px 0;
@@ -46,7 +41,7 @@
 }
 
 .container-task_label {
-    height: 100%;
+    width: 100%;
     display: flex;
     align-items: center;
     font-size: 0.8rem;
@@ -72,3 +67,34 @@
 .task-completed_p {
     text-decoration: line-through;
 }
+
+.container-tasks {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.icon-trash {
+    height: 15px;
+    width: 15px;
+    position: absolute;
+    right: 10px;
+}
+
+.input-new-task {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    background: #494747;
+    padding: 10px 15px;
+    color: #fff;
+    border-radius: 10px;
+    margin: 5px 0;
+}
+
+.input-new-task::placeholder {
+    color: #ccc;
+}
+
+/* blue color:   4597fd */
