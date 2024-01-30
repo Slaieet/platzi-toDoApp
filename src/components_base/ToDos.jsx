@@ -1,4 +1,4 @@
-import { Task } from "../components/Task"
+import { Task } from "../components/Task";
 
 const ToDos = ({ tareasFinal, tareas, setTareas }) => {
 
@@ -22,19 +22,19 @@ const ToDos = ({ tareasFinal, tareas, setTareas }) => {
         newTodo.splice(aux,1)
         setTareas(newTodo);
     }
-
+    
     return(
         <section className="principal-container">
             <h3>Haz completado { toDosComplet } de { totalToDos } ToDos</h3>
 
-            <input type="text" className="input-new-task" 
+            <input type="text" className="input-new-task"
                 placeholder="Agregue una nueva tarea: "
             />
 
             {tareasFinal.map(tarea => {
                 return (
                     <Task text={tarea.text} key={tarea.id} completed={tarea.completed}
-                    onComplet={() => todoComplet(tarea.id)} 
+                    onComplet={() => todoComplet(tarea.id)}
                     onDelete={() => onDelete(tarea.id)}
                     />
                 )

@@ -17,7 +17,7 @@ const Task = ({ text, completed, onComplet, onDelete }) => {
                 </p>
             </label>
             <img 
-            src={trash} alt="trash" className="icon-trash" 
+            src={trash} alt="trash" className="icon-trash"
             onMouseEnter={() => setTrash(trashBlue)}
             onMouseLeave={() => setTrash(iconTrash)}
             onClick={onDelete}
