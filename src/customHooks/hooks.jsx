@@ -1,7 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const useToDos = (tareasDefault) => {
-    const [ tareas, setTareas ] = useState(tareasDefault);
+const useToDos = () => {
+
+    const [ tareas, setTareas ] = useState([]);
+    const [ load, setLoad ] = useState(true);
+
+
+    useEffect(() => {
+        try {
+            setTimeout(() => {
+                const auxdefaultTareas = localStorage.getItem("TAREAS_V1");
+
+                if (!auxdefaultTareas) {
+                    localStorage.setItem("TAREAS_V1", JSON.stringify([]));
+                } else {
+                    let aux = localStorage.getItem("TAREAS_V1");
+                    let tareasDefault = JSON.parse(aux);
+                    setTareas(tareasDefault);
+                }
+                
+                setLoad(false);
+            }, 1000)
+        } catch(e) {
+            console.log(e);
+        }
+    }, [])
 
     const saveTodos = (newSaveTodos) => {
         localStorage.setItem("TAREAS_V1", JSON.stringify(newSaveTodos));
@@ -25,7 +48,8 @@ const useToDos = (tareasDefault) => {
     return {
         tareas,
         complet,
-        deleted
+        deleted,
+        load
     }
 }
 

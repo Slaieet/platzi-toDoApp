@@ -31,3 +31,15 @@
         padding: 0 10%;
     }
 }
+
+/* loading */
+
+.cage-loading {
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
