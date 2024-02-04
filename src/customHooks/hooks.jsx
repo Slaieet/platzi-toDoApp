@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { v4 as uuid } from "uuid";
 
 const useToDos = () => {
 
@@ -45,10 +46,22 @@ const useToDos = () => {
         saveTodos(newTodo);
     }
 
+    const createToDo = (text) => {
+        let newTodo = [...tareas];
+        let aux = {
+            id: uuid(),
+            text: text,
+            completed: false
+        }
+        newTodo.push(aux);
+        saveTodos(newTodo);
+    }
+
     return {
         tareas,
         complet,
         deleted,
+        createToDo,
         load
     }
 }

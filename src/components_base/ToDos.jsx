@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Task } from "../components/Task";
 
 const ToDos = ({ tareasFinal, toDos }) => {
@@ -8,6 +9,15 @@ const ToDos = ({ tareasFinal, toDos }) => {
     }, 0)
 
     const totalToDos = tareasFinal.length;
+
+    const [ valueNewTask, setValueNewTask ] = useState("");
+
+    const newTodo = event => {
+        if (event.key === "Enter") {
+            toDos.createToDo(valueNewTask);
+            setValueNewTask("");
+        };
+    }
     
     return(
         <section className="principal-container">
@@ -15,6 +25,9 @@ const ToDos = ({ tareasFinal, toDos }) => {
 
             <input type="text" className="input-new-task"
                 placeholder="Agregue una nueva tarea: "
+                value={valueNewTask}
+                onChange={e => setValueNewTask(e.target.value)}
+                onKeyDown={newTodo}
             />
 
             {tareasFinal.map(tarea => {
