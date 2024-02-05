@@ -8,13 +8,13 @@ const Headerr = ({ busqueda, setBusqueda }) => {
 
   return (
     <header className="principal-header">
-        <header>
+        <header className="esconder">
             <h1>To Do</h1>
         </header>
       
         <Search type="text" busqueda={busqueda} setBusqueda={setBusqueda} />
       
-        <footer>
+        <footer className="esconder">
             <ProfilePicture url={url} />
         </footer>
     </header>

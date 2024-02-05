@@ -9,19 +9,17 @@ const useToDos = () => {
 
     useEffect(() => {
         try {
-            setTimeout(() => {
-                const auxdefaultTareas = localStorage.getItem("TAREAS_V1");
+            const auxdefaultTareas = localStorage.getItem("TAREAS_V1");
 
-                if (!auxdefaultTareas) {
-                    localStorage.setItem("TAREAS_V1", JSON.stringify([]));
-                } else {
-                    let aux = localStorage.getItem("TAREAS_V1");
-                    let tareasDefault = JSON.parse(aux);
-                    setTareas(tareasDefault);
-                }
-                
-                setLoad(false);
-            }, 1000)
+            if (!auxdefaultTareas) {
+                localStorage.setItem("TAREAS_V1", JSON.stringify([]));
+            } else {
+                let aux = localStorage.getItem("TAREAS_V1");
+                let tareasDefault = JSON.parse(aux);
+                setTareas(tareasDefault);
+            }
+            
+            setLoad(false);
         } catch(e) {
             console.log(e);
         }

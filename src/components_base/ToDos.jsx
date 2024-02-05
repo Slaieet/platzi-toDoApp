@@ -38,6 +38,10 @@ const ToDos = ({ tareasFinal, toDos }) => {
         }
     }
     
+    const onlyClose = () => {
+        setShowModal(false);
+    }
+
     return(
         <section className="principal-container">
             <h3>Haz completado { toDosComplet } de { totalToDos } ToDos</h3>
@@ -62,6 +66,7 @@ const ToDos = ({ tareasFinal, toDos }) => {
             { (showModal) ? <ModalEdit intervalModal={intervalModal} 
                 valueModal={valueModal} 
                 setValueModal={setValueModal}
+                onlyClose={onlyClose}
             /> : null }
 
         </section>

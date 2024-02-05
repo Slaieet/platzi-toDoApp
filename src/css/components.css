@@ -60,7 +60,12 @@
     }
 
     input:checked {
-        background-image: url("../images/checked.svg");
+        background-image: url("../icons/checked.svg");
+    }
+
+    p {
+        width: 100%;
+        padding-right: 40px;
     }
 }
 
@@ -130,7 +135,7 @@
 
 .modal-textarea {
     width: 80%;
-    min-height: 50px;
+    min-height: 100px;
     max-height: 350px;
     resize: vertical;
     background: #494747;
@@ -139,18 +144,30 @@
     border-radius: 5px;
 }
 
+.modal-footer {
+    width: 100%;
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+    padding: 0 10px;
+}
+
 .modal-close {
     height: 30px;
     width: 90px;
     background: #4597fd;
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
     border-radius: 5px;
     cursor: pointer;
     border: 1px solid #4597fd;
     transition: border-color 0.2s;
     color: #f2f2f2;
+}
+
+.modal-cancel {
+    background: rgb(221, 69, 69);
+    border-color: rgb(221, 69, 69);
 }
 
 .modal-close:hover {
@@ -159,6 +176,12 @@
 
 .blur {
     filter: blur(3px);
+}
+
+@media (width < 500px) {
+    .esconder {
+        display: none;
+    }
 }
 
 /* blue color:   4597fd */

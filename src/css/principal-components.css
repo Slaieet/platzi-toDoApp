@@ -32,6 +32,12 @@
     }
 }
 
+@media (width < 500px) {
+    .principal-header {
+        justify-content: center;
+    }
+}
+
 /* loading */
 
 .cage-loading {
