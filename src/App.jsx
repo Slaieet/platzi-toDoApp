@@ -11,6 +11,9 @@ import { Loading } from "./components/Loading.jsx"
 import { useState } from "react";
 import { useToDos } from "./customHooks/hooks.jsx";
 
+//context
+import { modalContext } from "./context/modalContext.jsx"
+
 const App = () => {
 
   const toDos = useToDos();
@@ -23,14 +26,19 @@ const App = () => {
     return lowerTarea.includes(busqueda.toLowerCase());
   })
 
+  // modalContext
+  const modal = useState(false);
+
   return (
-    <>
-      <Headerr tareas={tareasFinal} busqueda={busqueda} setBusqueda={setBusqueda}/>
-      { (toDos.load) 
-      ? <Loading /> 
-      : <ToDos tareasFinal={tareasFinal} toDos={toDos} />
-      }
-    </>
+    <modalContext.Provider value={modal}>
+      <main className={(modal[0]) ? "blur" : null }>
+          <Headerr tareas={tareasFinal} busqueda={busqueda} setBusqueda={setBusqueda}/>
+          { (toDos.load) 
+          ? <Loading /> 
+          : <ToDos tareasFinal={tareasFinal} toDos={toDos} />
+          }
+      </main>
+    </modalContext.Provider>
   )
 }
 

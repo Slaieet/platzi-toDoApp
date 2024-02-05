@@ -57,11 +57,19 @@ const useToDos = () => {
         saveTodos(newTodo);
     }
 
+    const edit = (id, newValue) => {
+        let newTodo = [...tareas];
+        let aux = newTodo.findIndex(item => item.id === id);
+        newTodo[aux].text = newValue;
+        saveTodos(newTodo);
+    }
+
     return {
         tareas,
         complet,
         deleted,
         createToDo,
+        edit,
         load
     }
 }

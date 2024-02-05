@@ -81,6 +81,13 @@
     right: 10px;
 }
 
+.icon-edit {
+    height: 15px;
+    width: 15px;
+    position: absolute;
+    right: 30px; 
+}
+
 .input-new-task {
     width: 100%;
     display: flex;
@@ -95,6 +102,63 @@
 
 .input-new-task::placeholder {
     color: #ccc;
+}
+
+.modal-edit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 500px;
+    width: 400px;
+    background: #252423;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.edit-header {
+    padding: 20px 0;
+    
+    h5 {
+        text-align: center;
+        color: #fff;
+        font-size: 1.2rem;
+    }
+}
+
+.modal-textarea {
+    width: 80%;
+    min-height: 50px;
+    max-height: 350px;
+    resize: vertical;
+    background: #494747;
+    padding: 5px;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.modal-close {
+    height: 30px;
+    width: 90px;
+    background: #4597fd;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid #4597fd;
+    transition: border-color 0.2s;
+    color: #f2f2f2;
+}
+
+.modal-close:hover {
+    border-color: #fff;
+}
+
+.blur {
+    filter: blur(3px);
 }
 
 /* blue color:   4597fd */
