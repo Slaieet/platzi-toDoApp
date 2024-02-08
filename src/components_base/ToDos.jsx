@@ -1,7 +1,9 @@
 import { useState, useContext } from "react";
 import { Task } from "../components/Task";
 import { ModalEdit } from "../components/ModalEdit";
-import { modalContext } from "../context/modalContext"
+import { modalContext } from "../context/modalContext";
+import sendIcon from "../icons/send.svg";
+import sendIconBlue from "../icons/sendBlue.svg";
 
 const ToDos = ({ tareasFinal, toDos }) => {
 
@@ -14,11 +16,13 @@ const ToDos = ({ tareasFinal, toDos }) => {
 
     const [ valueNewTask, setValueNewTask ] = useState("");
 
-    const newTodo = event => {
-        if (event.key === "Enter") {
-            toDos.createToDo(valueNewTask);
-            setValueNewTask("");
-        };
+    const newTodo = (click ,event) => {
+        if (event.target.value !== undefined && event.target.value !== "") {
+            if (event.key === "Enter" || click) {
+                toDos.createToDo(valueNewTask);
+                setValueNewTask("");
+            }
+        }
     }
 
     const [ showModal, setShowModal ] = useContext(modalContext);
@@ -42,16 +46,25 @@ const ToDos = ({ tareasFinal, toDos }) => {
         setShowModal(false);
     }
 
+    const [ send, setSend ] = useState(sendIcon);
+
     return(
         <section className="principal-container">
             <h3>Haz completado { toDosComplet } de { totalToDos } ToDos</h3>
 
+        <div className="cage-new-task">
             <input type="text" className="input-new-task"
                 placeholder="Agregue una nueva tarea: "
                 value={valueNewTask}
                 onChange={e => setValueNewTask(e.target.value)}
-                onKeyDown={newTodo}
+                onKeyDown={e => newTodo(false, e)}
             />
+            <img src={send} alt="send" className="icon-send" 
+                onMouseEnter={() => setSend(sendIconBlue)}
+                onMouseLeave={() => setSend(sendIcon)}
+                onClick={e => newTodo(true, e)}
+            />
+        </div>
 
             {tareasFinal.map(tarea => {
                 return (
