@@ -16,11 +16,16 @@ const ToDos = ({ tareasFinal, toDos }) => {
 
     const [ valueNewTask, setValueNewTask ] = useState("");
 
-    const newTodo = (click ,event) => {
-        if (event.target.value !== undefined && event.target.value !== "") {
-            if (event.key === "Enter" || click) {
+    const newTodo = (click, event) => {
+        if (valueNewTask !== undefined && valueNewTask !== "") {
+            if (click) {
                 toDos.createToDo(valueNewTask);
                 setValueNewTask("");
+            } else {
+                if (event.key === "Enter") {
+                    toDos.createToDo(valueNewTask);
+                    setValueNewTask("");
+                }                
             }
         }
     }
@@ -62,7 +67,7 @@ const ToDos = ({ tareasFinal, toDos }) => {
             <img src={send} alt="send" className="icon-send" 
                 onMouseEnter={() => setSend(sendIconBlue)}
                 onMouseLeave={() => setSend(sendIcon)}
-                onClick={e => newTodo(true, e)}
+                onClick={e => newTodo(true)}
             />
         </div>
 
